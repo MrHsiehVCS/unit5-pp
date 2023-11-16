@@ -15,10 +15,9 @@ public class CardTests {
     void defaultConstructorAndAccessorsWorksCorrectly() throws Exception {
         Card card = new Card();
         
-        assertAll("Default constructor and all accessors work correctly", 
-            () -> assertEquals(DEFAULT_VALUE, card.getValue()),
-            () -> assertEquals(DEFAULT_SUIT, card.getSuit())
-        );
+        // "Default constructor and all accessors work correctly", 
+        assertEquals(DEFAULT_VALUE, card.getValue());
+        assertEquals(DEFAULT_SUIT, card.getSuit());
     }
 
     @Test
@@ -26,10 +25,9 @@ public class CardTests {
         String suit = "spades";
         Card card = new Card(suit);
         
-        assertAll("Default constructor and all accessors work correctly", 
-            () -> assertEquals(DEFAULT_VALUE, card.getValue()),
-            () -> assertEquals(suit, card.getSuit())
-        );
+        // "Default constructor and all accessors work correctly", 
+        assertEquals(DEFAULT_VALUE, card.getValue());
+        assertEquals(suit, card.getSuit());
     }
 
     @Test
@@ -37,10 +35,9 @@ public class CardTests {
         String suit = "spades", value = "ace";
         Card card = new Card(suit, value);
         
-        assertAll("Default constructor and all accessors work correctly", 
-            () -> assertEquals(value, card.getValue()),
-            () -> assertEquals(suit, card.getSuit())
-        );
+        // "Default constructor and all accessors work correctly", 
+        assertEquals(value, card.getValue());
+        assertEquals(suit, card.getSuit());
     }
 
     @Test
@@ -77,12 +74,11 @@ public class CardTests {
         Card c1 = new Card(suitOne, valueOne), c2 = new Card(suitOne, valueOne), c3 = new Card(suitTwo, valueOne),
             c4 = new Card(suitOne, valueTwo), c5 = new Card(suitTwo, valueTwo);
 
-        assertAll("equals checks both value and suit correctly", 
-            () -> assertTrue(c1.equals(c2)),
-            () -> assertFalse(c1.equals(c3)),
-            () -> assertFalse(c1.equals(c4)),
-            () -> assertFalse(c1.equals(c5)),
-            () -> assertTrue(c5.equals(c5))
-        );
+        // "equals checks both value and suit correctly", 
+        assertTrue(c1.equals(c2));
+        assertFalse(c1.equals(c3));
+        assertFalse(c1.equals(c4));
+        assertFalse(c1.equals(c5));
+        assertTrue(c5.equals(c5));
     }
 }
