@@ -16,12 +16,9 @@ public class DiceTests {
     @Test
     void defaultConstructorAndAccessorsWorksCorrectly() throws Exception {
         Dice defaultDice = new Dice();
-        
-        assertAll("Default constructor and all accessors work correctly", 
-            () -> assertEquals(DEFAULT_SIDES, defaultDice.getSides()),
-            () -> assertEquals(DEFAULT_START, defaultDice.getCurrentSide()),
-            () -> assertEquals(DEFAULT_COLOR, defaultDice.getColor())
-        );
+        assertEquals(DEFAULT_SIDES, defaultDice.getSides());
+        assertEquals(DEFAULT_START, defaultDice.getCurrentSide());
+        assertEquals(DEFAULT_COLOR, defaultDice.getColor());
     }
 
     @Test
@@ -29,11 +26,9 @@ public class DiceTests {
         int numSides = 8;
         Dice sidedDice = new Dice(numSides);
         
-        assertAll("Default constructor and all accessors work correctly", 
-            () -> assertEquals(numSides, sidedDice.getSides()),
-            () -> assertEquals(DEFAULT_START, sidedDice.getCurrentSide()),
-            () -> assertEquals(DEFAULT_COLOR, sidedDice.getColor())
-        );
+        assertEquals(numSides, sidedDice.getSides());
+        assertEquals(DEFAULT_START, sidedDice.getCurrentSide());
+        assertEquals(DEFAULT_COLOR, sidedDice.getColor());
     }
 
     @Test
@@ -42,11 +37,9 @@ public class DiceTests {
         int startingSide = 19;
         Dice startedDice = new Dice(numSides, startingSide);
         
-        assertAll("Default constructor and all accessors work correctly", 
-            () -> assertEquals(numSides, startedDice.getSides()),
-            () -> assertEquals(startingSide, startedDice.getCurrentSide()),
-            () -> assertEquals(DEFAULT_COLOR, startedDice.getColor())
-        );
+        assertEquals(numSides, startedDice.getSides());
+        assertEquals(startingSide, startedDice.getCurrentSide());
+        assertEquals(DEFAULT_COLOR, startedDice.getColor());
     }
 
     @Test
@@ -55,11 +48,9 @@ public class DiceTests {
         int startingSide = 4;
         Dice startedDice = new Dice(numSides, startingSide);
         
-        assertAll("Default constructor and all accessors work correctly", 
-            () -> assertEquals(numSides, startedDice.getSides()),
-            () -> assertEquals(DEFAULT_START, startedDice.getCurrentSide()),
-            () -> assertEquals(DEFAULT_COLOR, startedDice.getColor())
-        );
+        assertEquals(numSides, startedDice.getSides());
+        assertEquals(DEFAULT_START, startedDice.getCurrentSide());
+        assertEquals(DEFAULT_COLOR, startedDice.getColor());
     }
 
     @Test
@@ -69,11 +60,9 @@ public class DiceTests {
         String color = "teal";
         Dice coloredDice = new Dice(numSides, startingSide, color);
         
-        assertAll("Default constructor and all accessors work correctly", 
-            () -> assertEquals(numSides, coloredDice.getSides()),
-            () -> assertEquals(startingSide, coloredDice.getCurrentSide()),
-            () -> assertEquals(color, coloredDice.getColor())
-        );
+        assertEquals(numSides, coloredDice.getSides());
+        assertEquals(startingSide, coloredDice.getCurrentSide());
+        assertEquals(color, coloredDice.getColor());
     }
 
     @Test
@@ -82,10 +71,8 @@ public class DiceTests {
         Dice d2 = new Dice(5, 2);
         Dice d3 = new Dice(30, 3);
 
-        assertAll("Two dice are equal if they are on the same side", 
-            () -> assertTrue(d1.equals(d2)),
-            () -> assertFalse(d1.equals(d3))
-        );
+        assertTrue(d1.equals(d2));
+        assertFalse(d1.equals(d3));
     }
 
     @Test
@@ -134,11 +121,9 @@ public class DiceTests {
             rollsAndSides[i][SIDE] = diceToRoll.getCurrentSide();
         }
 
-        assertAll("Dice rolls are between 1 and numSides, returns and updates the new currentSide, and are pseudorandom.",
-                () -> assertTrue(isRandom(rollsAndSides)),
-                () -> assertTrue(allEquals(rollsAndSides)),
-                () -> assertTrue(allValid(diceToRoll.getSides(), rollsAndSides))
-            );
+        assertTrue(isRandom(rollsAndSides));
+        assertTrue(allEquals(rollsAndSides));
+        assertTrue(allValid(diceToRoll.getSides(), rollsAndSides));
     }
 
     boolean isRandom(int[][] rollsAndSides) {

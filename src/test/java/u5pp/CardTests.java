@@ -15,10 +15,8 @@ public class CardTests {
     void defaultConstructorAndAccessorsWorksCorrectly() throws Exception {
         Card card = new Card();
         
-        assertAll("Default constructor and all accessors work correctly", 
-            () -> assertEquals(DEFAULT_VALUE, card.getValue()),
-            () -> assertEquals(DEFAULT_SUIT, card.getSuit())
-        );
+        assertEquals(DEFAULT_VALUE, card.getValue());
+        assertEquals(DEFAULT_SUIT, card.getSuit());
     }
 
     @Test
@@ -26,10 +24,8 @@ public class CardTests {
         String suit = "spades";
         Card card = new Card(suit);
         
-        assertAll("Default constructor and all accessors work correctly", 
-            () -> assertEquals(DEFAULT_VALUE, card.getValue()),
-            () -> assertEquals(suit, card.getSuit())
-        );
+        assertEquals(DEFAULT_VALUE, card.getValue());
+        assertEquals(suit, card.getSuit());
     }
 
     @Test
@@ -37,15 +33,14 @@ public class CardTests {
         String suit = "spades", value = "ace";
         Card card = new Card(suit, value);
         
-        assertAll("Default constructor and all accessors work correctly", 
-            () -> assertEquals(value, card.getValue()),
-            () -> assertEquals(suit, card.getSuit())
-        );
+        assertEquals(value, card.getValue());
+        assertEquals(suit, card.getSuit());
     }
 
     @Test
     void changeValueWorksCorrectly() throws Exception {
-        String validValue = "JACK", invalidValue = "JOCK";
+        String validValue = "JACK";
+        String invalidValue = "JOCK";
         Card c = new Card();
         c.changeValue(validValue);
         c.changeValue(invalidValue);
@@ -55,7 +50,8 @@ public class CardTests {
 
     @Test
     void changeSuitWorksCorrectly() throws Exception {
-        String validValue = "HEaRTS", invalidValue = "HeOrts";
+        String validValue = "HEaRTS";
+        String invalidValue = "HeOrts";
         Card c = new Card();
         c.changeSuit(validValue);
         c.changeSuit(invalidValue);
@@ -65,7 +61,9 @@ public class CardTests {
 
     @Test
     void toStringWorksCorrectly() throws Exception {
-        String suit = "diamonds", value = "10", expectedOutput = "The " + value + " of " + suit;
+        String suit = "diamonds";
+        String value = "10";
+        String expectedOutput = "The " + value + " of " + suit;
         Card card = new Card(suit, value);
 
         assertEquals(expectedOutput, card.toString());
@@ -73,16 +71,20 @@ public class CardTests {
 
     @Test
     void equalsWorksCorrectly() throws Exception {
-        String suitOne = "hearts", suitTwo = "diamonds", valueOne = "ace", valueTwo = "two";
-        Card c1 = new Card(suitOne, valueOne), c2 = new Card(suitOne, valueOne), c3 = new Card(suitTwo, valueOne),
-            c4 = new Card(suitOne, valueTwo), c5 = new Card(suitTwo, valueTwo);
+        String suitOne = "hearts";
+        String suitTwo = "diamonds";
+        String valueOne = "ace";
+        String valueTwo = "two";
+        Card c1 = new Card(suitOne, valueOne);
+        Card c2 = new Card(suitOne, valueOne);
+        Card c3 = new Card(suitTwo, valueOne);
+        Card c4 = new Card(suitOne, valueTwo); 
+        Card c5 = new Card(suitTwo, valueTwo);
 
-        assertAll("equals checks both value and suit correctly", 
-            () -> assertTrue(c1.equals(c2)),
-            () -> assertFalse(c1.equals(c3)),
-            () -> assertFalse(c1.equals(c4)),
-            () -> assertFalse(c1.equals(c5)),
-            () -> assertTrue(c5.equals(c5))
-        );
+        assertTrue(c1.equals(c2));
+        assertFalse(c1.equals(c3));
+        assertFalse(c1.equals(c4));
+        assertFalse(c1.equals(c5));
+        assertTrue(c5.equals(c5));
     }
 }
