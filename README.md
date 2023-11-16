@@ -1,6 +1,6 @@
 # Unit 5 Programming Project
 
-For this project, you will be writing three different classes: `Dice`, `Card`, and `MyMath`. Make sure to properly JavaDoc your code and to use proper data encapsulation.
+For this project, you will be writing four different classes from scratch: `Dice`, `Card`, `MyMath`, and `InputHelper`. Make sure to properly JavaDoc your code and to use proper data encapsulation.
 
 ## PART A - `Dice.java`
 
@@ -63,11 +63,56 @@ For **Part C** you are going to complete the class `MyMath`. This class simulate
 - `static double pow(double base, int exponent)` which raises the base to the power of the exponent. You can assume that the exponent is greater than or equal to 0.
 - `static int perfectSqrt(int x)` which returns the square root of x if there is a whole number that is a square root. It returns -1 otherwise.
 
-You may include any other `private` methods and instance variables you think applicable. You should have nothing else that is `public` other than what is listed above.
+## PART D - InputHelper.java
+
+Isn't it annoying to keep writing the same code to check if someone's input is what we want? We'll make a helper class that does that for us. 
+
+You will create the `InputHelper` class that has the following `public` methods:
+
+- `InputHelper(Scanner scanner)` - a constructor which takes in a scanner that is used to read the input
+- `public boolean getYesNoInput(String prompt)` - takes in a prompt, asks the player the prompt. Everytime the player does not answer something that starts with a `y`, `Y`, `n`, or `N`, it tell the player that their input is invalid, and asks them the prompt again. Loops until proper input is given, at which point, it returns a `true` for yes and `false` for no.
+- `public int getIntegerInput(String prompt, int min, int max)` - does the same thing as `getYesNoInput`, except for a few differences: Repeatedly prompts until a proper integer input is given. The integer must be larger than or equal to `min`, and less than or equal to `max`.
+
+### Example output for `getYesNoInput`
+```Java
+please answer yes or no.
+asdf
+Invalid input - does not start with "y" or "n". Please try again.
+please answer yes or no.
+
+Invalid input - empty line. Please try again.
+please answer yes or no.
+yaaaas 
+// (at this point the function should return true)
+```
+
+### Example output for `getIntegerInput`
+```java
+please chose a number between 10 and 12 (inclusive).
+7
+Invalid input - too low. Please try again.
+please chose a number between 10 and 12 (inclusive).
+asdf
+Invalid input - not a number. Please try again.
+please chose a number between 10 and 12 (inclusive).
+
+Invalid input - empty line. Please try again.
+please chose a number between 10 and 12 (inclusive).
+100
+Invalid input - too high. Please try again.
+please chose a number between 10 and 12 (inclusive).
+10
+// (at this point, the method should return 10)
+```
+
 
 ## GRADING BREAKDOWN
 
-- Attempted code in all **YOUR CODE HERE** areas: 20 points
-- Correctly JavaDoc'ed all Code: 20 points
-- Has no `public` members other than those specified: 10 points
-- Passed all Test Cases: 50 points
+- Code compiles & runs without errors: 1 pts
+- Formatting/indentation: 2 points
+- All code commented: 2 points
+- No public methods/attributes besides the ones specified (additional private methods/attributes are encouraged): 2 point
+- All code is DRY (Don't repeat yourself): 3 points
+- Passes all test cases: 20 points 
+
+Total: 30 points
