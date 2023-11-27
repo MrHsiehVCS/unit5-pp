@@ -6,7 +6,7 @@ For this project, you will be writing four different classes from scratch: `Dice
 
 For **Part A** you are going to complete the class `Dice`. This class represents an *n*-sided dice. You will need to complete:
 
-1. The constructors. You will write four overloaded constructors. The constructors will set instance variables either to the default values or to value given through the constructor's parameters.
+1. The constructors. You will write four overloaded constructors. The constructors will set instance variables either to the default values or to value given through the constructor's parameters. If the atguments for the constructor would make an invalid `Dice`, then set the offneding value(s) to its default. 
    - **Default Values:**
       - `numSides: 6`, `startingSide: 1`, `color: "green"`
    - **Constructors**
@@ -28,6 +28,8 @@ For **Part A** you are going to complete the class `Dice`. This class represents
    - `void changeNumSides(int num)` changes the number of sides on the `Dice` to `num`
 
 You may include any other `private` methods and instance variables you think applicable. You should have nothing else that is `public` other than what is listed above.
+
+Hint: Make sure your setters and constructor check for validity of input. One possible design pattern is to have if statements in all of them, or you can have the checks in your setters and have your constructor call your setters.
 
 ## PART B - `Card.java`
 
