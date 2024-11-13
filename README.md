@@ -6,7 +6,7 @@ For this project, you will be writing four different classes from scratch: `Dice
 
 For **Part A** you are going to complete the class `Dice`. This class represents an *n*-sided dice. You will need to complete:
 
-1. The constructors. You will write four overloaded constructors. The constructors will set instance variables either to the default values or to value given through the constructor's parameters. If the atguments for the constructor would make an invalid `Dice`, then set the offneding value(s) to its default. 
+1. The constructors. You will write four overloaded constructors. The constructors will set instance variables either to the default values or to value given through the constructor's parameters. If the atguments for the constructor would make an invalid `Dice`, then set the offending value(s) to its default. 
    - **Default Values:**
       - `numSides: 6`, `startingSide: 1`, `color: "green"`
    - **Constructors**
