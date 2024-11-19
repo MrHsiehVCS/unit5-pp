@@ -75,7 +75,7 @@ You will create the `InputHelper` class that has the following `public` methods:
 - `public boolean getYesNoInput(String prompt)` - takes in a prompt, asks the player the prompt. Everytime the player does not answer something that starts with a `y`, `Y`, `n`, or `N`, it tell the player that their input is invalid, and asks them the prompt again. Loops until proper input is given, at which point, it returns a `true` for yes and `false` for no.
 - `public int getIntegerInput(String prompt, int min, int max)` - does the same thing as `getYesNoInput`, except for a few differences: Repeatedly prompts until a proper integer input is given. The integer must be larger than or equal to `min`, and less than or equal to `max`.
 
-### Example output for `getYesNoInput`
+### Example output for `getYesNoInput` with the prompt "please answer yes or no."
 ```Java
 please answer yes or no.
 asdf
@@ -88,21 +88,21 @@ yaaaas
 // (at this point the function should return true)
 ```
 
-### Example output for `getIntegerInput`
+### Example output for `getIntegerInput` with the prompt "please choose a number between 10 and 12 (inclusive)."
 ```java
-please chose a number between 10 and 12 (inclusive).
+please choose a number between 10 and 12 (inclusive).
 7
 Invalid input - too low. Please try again.
-please chose a number between 10 and 12 (inclusive).
+please choose a number between 10 and 12 (inclusive).
 asdf
 Invalid input - not a number. Please try again.
-please chose a number between 10 and 12 (inclusive).
+please choose a number between 10 and 12 (inclusive).
 
 Invalid input - empty line. Please try again.
-please chose a number between 10 and 12 (inclusive).
+please choose a number between 10 and 12 (inclusive).
 100
 Invalid input - too high. Please try again.
-please chose a number between 10 and 12 (inclusive).
+please choose a number between 10 and 12 (inclusive).
 10
 // (at this point, the method should return 10)
 ```
